@@ -1,0 +1,7 @@
+Running: xsim.dir/pitchshift_sim_behav/xsimk.exe -simmode gui -wdb pitchshift_sim_behav.wdb -simrunnum 0 -socket 52365
+Design successfully loaded
+Design Loading Memory Usage: 8652 KB (Peak: 8652 KB)
+Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 9212 KB (Peak: 9212 KB)
+Simulation CPU Usage: 15 ms

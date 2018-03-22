@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Thu Mar 22 19:07:59 2018
+# Process ID: 19304
+# Current directory: C:/Users/Auora/Documents/tonedeaf/audio_effects.runs/synth_1
+# Command line: vivado.exe -log pitch_shift.vds -mode batch -messageDb vivado.pb -notrace -source pitch_shift.tcl
+# Log file: C:/Users/Auora/Documents/tonedeaf/audio_effects.runs/synth_1/pitch_shift.vds
+# Journal file: C:/Users/Auora/Documents/tonedeaf/audio_effects.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source pitch_shift.tcl -notrace
