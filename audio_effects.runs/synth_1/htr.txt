@@ -6,4 +6,4 @@ REM          to be invoked for Vivado to track run status.
 REM Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 REM
 
-vivado -log pitch_shift.vds -m64 -mode batch -messageDb vivado.pb -notrace -source pitch_shift.tcl
+vivado -log AUDIO_FX_TOP.vds -m64 -mode batch -messageDb vivado.pb -notrace -source AUDIO_FX_TOP.tcl

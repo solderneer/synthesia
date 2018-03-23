@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log pitch_shift.vds -m64 -mode batch -messageDb vivado.pb -notrace -source pitch_shift.tcl" );
+         "-log AUDIO_FX_TOP.vds -m64 -mode batch -messageDb vivado.pb -notrace -source AUDIO_FX_TOP.tcl" );
 
 
 

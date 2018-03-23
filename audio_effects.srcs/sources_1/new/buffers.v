@@ -21,9 +21,10 @@
 
 
 module pitch_buffer(
-    input I_clk,
+    input wr_clk,
+    input rd_clk,
     input [11:0] I_microphone,
-    input [4:0] I_delta,
+    input [3:0] I_delta,
     output reg [11:0] O_buffer
     );
     
@@ -44,12 +45,13 @@ module pitch_buffer(
         rd_ptr = 0;
     end
     
-    always @(posedge I_clk) begin
+    always @(posedge wr_clk) begin
         buffer[wr_ptr] <= I_microphone;
-        O_buffer <= buffer[rd_ptr];
-        
         wr_ptr <= wr_ptr + 1;
-        // TODO: Implement pitch shift down
+    end
+    
+    always @(posedge rd_clk) begin
+        O_buffer <= buffer[rd_ptr];
         rd_ptr <= rd_ptr + I_delta;
     end
     
