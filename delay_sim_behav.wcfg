@@ -12,10 +12,10 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="180200004fs"></ZoomEndTime>
-      <Cursor1Time time="15000000fs"></Cursor1Time>
+      <ZoomEndTime time="180200001fs"></ZoomEndTime>
+      <Cursor1Time time="5000000fs"></Cursor1Time>
    </zoom_setting>
-   <WVObjectSize size="6" />
+   <WVObjectSize size="10" />
    <wvobject fp_name="/pitchshift_sim/I_clk" type="logic">
       <obj_property name="ElementShortName">I_clk</obj_property>
       <obj_property name="ObjectShortName">I_clk</obj_property>
@@ -33,10 +33,26 @@
       <obj_property name="ObjectShortName">O_output[11:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/pitchshift_sim/pit1/buf1/rd_ptr" type="array">
-      <obj_property name="ElementShortName">rd_ptr[10:0]</obj_property>
-      <obj_property name="ObjectShortName">rd_ptr[10:0]</obj_property>
+      <obj_property name="ElementShortName">rd_ptr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_ptr[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pitchshift_sim/pit1/buf1/wr_ptr" type="array">
+      <obj_property name="ElementShortName">wr_ptr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_ptr[3:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/pitchshift_sim/pit1/buf1/O_buffer" type="array">
+      <obj_property name="ElementShortName">O_buffer[11:0]</obj_property>
+      <obj_property name="ObjectShortName">O_buffer[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pitchshift_sim/pit1/buf2/rd_ptr" type="array">
+      <obj_property name="ElementShortName">rd_ptr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_ptr[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pitchshift_sim/pit1/buf2/wr_ptr" type="array">
+      <obj_property name="ElementShortName">wr_ptr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_ptr[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pitchshift_sim/pit1/buf2/O_buffer" type="array">
       <obj_property name="ElementShortName">O_buffer[11:0]</obj_property>
       <obj_property name="ObjectShortName">O_buffer[11:0]</obj_property>
    </wvobject>

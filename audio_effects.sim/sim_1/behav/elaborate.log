@@ -8,7 +8,7 @@ Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.buffer
-Compiling module xil_defaultlib.buffer(wr_offset=512)
+Compiling module xil_defaultlib.buffer(wr_offset=8)
 Compiling module xil_defaultlib.pitch_shift
 Compiling module xil_defaultlib.pitchshift_sim
 Compiling module xil_defaultlib.glbl

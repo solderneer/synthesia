@@ -24,6 +24,8 @@ module pitchshift_sim(
 
     );
     
+    // Tested with a variant holding a 16 bit buffer instead of implement 1024 bit buffer
+    
     reg I_clk;
     reg [11:0] I_input;
     reg [4:0] I_delta;

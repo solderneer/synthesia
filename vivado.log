@@ -1942,3 +1942,5 @@ launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): 
 close_sim
 INFO: [Simtcl 6-16] Simulation closed
 close_design
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Mar 22 19:31:25 2018...

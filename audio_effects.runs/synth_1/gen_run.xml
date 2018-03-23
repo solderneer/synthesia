@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1521716878">
-  <File Type="RDS-PROPCONSTRS" Name="pitch_shift_drc_synth.rpt"/>
   <File Type="PA-TCL" Name="pitch_shift.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="pitch_shift_drc_synth.rpt"/>
   <File Type="RDS-RDS" Name="pitch_shift.vds"/>
   <File Type="RDS-UTIL" Name="pitch_shift_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="pitch_shift_utilization_synth.pb"/>
