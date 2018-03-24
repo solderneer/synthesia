@@ -21,16 +21,15 @@
 
 
 module pitch_buffer(
-    input wr_clk,
-    input rd_clk,
+    input I_clk,
     input [11:0] I_microphone,
-    input [3:0] I_delta,
+    input [3:0] I_delta, // Implemented in 2.2 fixed point represenataion
     output reg [11:0] O_buffer
     );
     
     reg [11:0] buffer[1023:0];
-    reg [10:0] rd_ptr;
-    reg [10:0] wr_ptr;
+    reg [11:0] rd_ptr; // Implemented in 10.2 fixed point represenation
+    reg [9:0] wr_ptr;
     parameter wr_offset = 0;
 
     integer cnt;
@@ -45,15 +44,13 @@ module pitch_buffer(
         rd_ptr = 0;
     end
     
-    always @(posedge wr_clk) begin
+    always @(posedge I_clk) begin
         buffer[wr_ptr] <= I_microphone;
         wr_ptr <= wr_ptr + 1;
-    end
-    
-    always @(posedge rd_clk) begin
-        O_buffer <= buffer[rd_ptr];
-        rd_ptr <= rd_ptr + I_delta;
-    end
+      
+        rd_ptr <= rd_ptr + I_delta; // Add 2 fixed point representations together
+        O_buffer <= buffer[rd_ptr[11:2]]; // Condider only integer portion of rd_ptr
+    end    
     
 endmodule
 

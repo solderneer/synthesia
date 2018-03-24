@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Fri Mar 23 15:03:41 2018
+| Date         : Sat Mar 24 10:53:20 2018
 | Host         : DESKTOP-URB8A7L running 64-bit major release  (build 9200)
 | Command      : report_io -file AUDIO_FX_TOP_io_placed.rpt
 | Design       : AUDIO_FX_TOP
@@ -23,7 +23,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            14 |
+|            13 |
 +---------------+
 
 
@@ -247,7 +247,7 @@ Table of Contents
 | V12        |             | Dedicated  | M0_0                         | Config        |             |       0 |            |      |                     |                      |         |            |           |          |      |                  |
 | V13        |             | High Range | IO_L24P_T3_A01_D17_14        | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |
 | V14        |             | High Range | IO_L24N_T3_A00_D16_14        | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |
-| V15        | deltaop     | High Range | IO_L21P_T3_DQS_14            | INPUT         | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |
+| V15        |             | High Range | IO_L21P_T3_DQS_14            | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |
 | V16        | delta[0]    | High Range | IO_L19P_T3_A10_D26_14        | INPUT         | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |
 | V17        | SW1         | High Range | IO_L19N_T3_A09_D25_VREF_14   | INPUT         | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |
 | V18        |             |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |

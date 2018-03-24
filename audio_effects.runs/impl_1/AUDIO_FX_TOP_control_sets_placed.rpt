@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Fri Mar 23 15:03:41 2018
+| Date         : Sat Mar 24 10:53:20 2018
 | Host         : DESKTOP-URB8A7L running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file AUDIO_FX_TOP_control_sets_placed.rpt
 | Design       : AUDIO_FX_TOP
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    11 |
-| Unused register locations in slices containing registers |    46 |
+| Number of unique control sets                            |    10 |
+| Unused register locations in slices containing registers |    44 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,7 +33,7 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             142 |           45 |
+| No           | No                    | No                     |             128 |           39 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              32 |            8 |
 | Yes          | No                    | No                     |              12 |            5 |
@@ -56,9 +56,8 @@ Table of Contents
 |  u2/J_DA2_Pin4_OBUF    | u2/temp2                   |                       |                5 |             12 |
 | ~u1/J_MIC3_Pin4_OBUF   |                            |                       |                4 |             12 |
 |  CLK_IBUF_BUFG         |                            | J_MIC3_Pin1_OBUF_BUFG |                3 |             12 |
-|  buf2/div/clk_final    |                            |                       |                7 |             20 |
-|  CLK_IBUF_BUFG         |                            | clkgen/O_20KHz        |                5 |             20 |
-|  J_MIC3_Pin1_OBUF_BUFG |                            |                       |               30 |            104 |
+|  CLK_IBUF_BUFG         |                            | clkgen/O_clk1         |                5 |             20 |
+|  J_MIC3_Pin1_OBUF_BUFG |                            |                       |               31 |            110 |
 +------------------------+----------------------------+-----------------------+------------------+----------------+
 
 

@@ -25,8 +25,7 @@ module AUDIO_FX_TOP(
     
     // Student defined
     input SW1,
-    input [3:0] delta,
-    input deltaop
+    input [3:0] delta
     );
 
     //////////////////////////////////////////////////////////////////////////////////
@@ -54,7 +53,7 @@ module AUDIO_FX_TOP(
       wire [11:0] buf2_out; 
       
       delay_buffer buf1 (clk_20k, MIC_in, buf1_out);
-      pitch_shift buf2 (clk_20k, MIC_in, delta, deltaop, buf2_out);
+      pitch_shift buf2 (clk_20k, MIC_in, delta, buf2_out);
           
       assign speaker_out = (SW1) ? buf2_out : buf1_out;
     /////////////////////////////////////////////////////////////////////////////////////

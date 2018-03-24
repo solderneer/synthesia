@@ -11,8 +11,6 @@ set_property src_info {type:XDC file:1 line:18 export:INPUT save:INPUT read:READ
 set_property PACKAGE_PIN W17 [get_ports {delta[2]}]
 set_property src_info {type:XDC file:1 line:20 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN W15 [get_ports {delta[3]}]
-set_property src_info {type:XDC file:1 line:22 export:INPUT save:INPUT read:READ} [current_design]
-set_property PACKAGE_PIN V15 [get_ports {deltaop}]
 set_property src_info {type:XDC file:1 line:126 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN J1 [get_ports {J_MIC3_Pin1}]
 set_property src_info {type:XDC file:1 line:132 export:INPUT save:INPUT read:READ} [current_design]

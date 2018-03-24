@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Fri Mar 23 15:04:19 2018
+| Date             : Sat Mar 24 10:53:45 2018
 | Host             : DESKTOP-URB8A7L running 64-bit major release  (build 9200)
 | Command          : report_power -file AUDIO_FX_TOP_power_routed.rpt -pb AUDIO_FX_TOP_power_summary_routed.pb -rpx AUDIO_FX_TOP_power_routed.rpx
 | Design           : AUDIO_FX_TOP
@@ -50,15 +50,15 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      354 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       95 |     20800 |            0.46 |
-|   Register     |    <0.001 |      194 |     41600 |            0.47 |
-|   CARRY4       |    <0.001 |       33 |      8150 |            0.40 |
-|   Others       |     0.000 |       17 |       --- |             --- |
+| Slice Logic    |    <0.001 |      326 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       87 |     20800 |            0.42 |
+|   Register     |    <0.001 |      180 |     41600 |            0.43 |
+|   CARRY4       |    <0.001 |       29 |      8150 |            0.36 |
+|   Others       |     0.000 |       15 |       --- |             --- |
 |   BUFG         |     0.000 |        1 |        32 |            3.13 |
-| Signals        |    <0.001 |      303 |       --- |             --- |
+| Signals        |    <0.001 |      279 |       --- |             --- |
 | Block RAM      |     0.000 |       13 |        50 |           26.00 |
-| I/O            |     0.006 |       14 |       106 |           13.21 |
+| I/O            |     0.006 |       13 |       106 |           12.26 |
 | Static Power   |     0.072 |          |           |                 |
 | Total          |     0.080 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
@@ -144,7 +144,6 @@ Table of Contents
 |   buf2       |    <0.001 |
 |     buf1     |    <0.001 |
 |     buf2     |    <0.001 |
-|     div      |    <0.001 |
 |   clkgen     |    <0.001 |
 |   u1         |    <0.001 |
 |   u2         |    <0.001 |
