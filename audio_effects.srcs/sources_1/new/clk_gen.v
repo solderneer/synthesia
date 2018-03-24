@@ -27,8 +27,9 @@ module clk_gen(
     output O_50MHz
     );
 
-    reg [20:0] cnt;
-    parameter CLK_DIV = 1250; 
+    parameter CLK_DIV = 1250;
+    
+    reg [20:0] cnt; 
     
     assign O_50MHz = ~cnt[0];
 

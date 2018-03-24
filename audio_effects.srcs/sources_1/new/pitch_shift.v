@@ -24,21 +24,25 @@ module pitch_shift(
     input I_clk,
     input [11:0] I_input,
     input [3:0] I_delta,
-    output reg [11:0] O_output
+    output [11:0] O_output
     );
     
     wire [11:0] buf1_out;
     wire [11:0] buf2_out;
     
-    pitch_buffer #(.wr_offset(0)) buf1 (I_clk, I_input, I_delta, buf1_out);
-    pitch_buffer #(.wr_offset(512)) buf2 (I_clk, I_input, I_delta, buf2_out);
+    reg [12:0] buf_out;
+    
+    pitch_buffer #(.WR_OFFSET(0),.SIZE(1024)) buf1 (I_clk, I_input, I_delta, buf1_out);
+    pitch_buffer #(.WR_OFFSET(512),.SIZE(1024)) buf2 (I_clk, I_input, I_delta, buf2_out);
+    
+    assign O_output = buf_out[11:0];
     
     initial begin
-        O_output = 0;
+        buf_out = 0;
     end
     
     always @(posedge I_clk) begin
-        O_output = ((buf1_out + buf2_out) >> 1);
+        buf_out = ((buf1_out + buf2_out) >> 1);
     end
     
     

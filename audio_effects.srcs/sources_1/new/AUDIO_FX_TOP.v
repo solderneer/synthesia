@@ -52,7 +52,7 @@ module AUDIO_FX_TOP(
       wire [11:0] buf1_out;
       wire [11:0] buf2_out; 
       
-      delay_buffer buf1 (clk_20k, MIC_in, buf1_out);
+      delay_buffer #(.SIZE(32768),.WR_OFFSET(12768)) buf1 (clk_20k, MIC_in, buf1_out);
       pitch_shift buf2 (clk_20k, MIC_in, delta, buf2_out);
           
       assign speaker_out = (SW1) ? buf2_out : buf1_out;

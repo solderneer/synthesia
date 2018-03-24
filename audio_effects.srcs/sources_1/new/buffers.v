@@ -62,14 +62,13 @@ module delay_buffer(
     );
     
     parameter SIZE = 32768;
-    parameter WR_OFFSET = 32767;
+    parameter WR_OFFSET = 0;
     
     reg [11:0] buffer[(SIZE-1):0];
     reg [($clog2(SIZE)-1):0] wr_ptr;
     reg [($clog2(SIZE)-1):0] rd_ptr;
     
     integer cnt;
-    
     initial begin
         for(cnt = 0; cnt < SIZE; cnt = cnt + 1) begin
             buffer[cnt] = 0;
