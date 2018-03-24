@@ -38,7 +38,7 @@ module AUDIO_FX_TOP(
       
       assign clk_reset = 0;
       
-      clk_gen clkgen (CLK, clk_reset, clk_20k, clk_50M);
+      clk_gen #(.CLK_DIV(1250)) clkgen (CLK, clk_reset, clk_20k, clk_50M);
   
      //////////////////////////////////////////////////////////////////////////////////
      //SPI Module: Converting serial data into a 12-bit parallel register

@@ -27,11 +27,15 @@ module clk_gen_sim(
     reg I_clk, I_rst;
     wire clk_20k, clk_50M;
     
-    clk_gen test (I_clk, I_rst, clk_20k, clk_50M);
+    clk_gen #(.CLK_DIV(4)) test (I_clk, I_rst, clk_20k, clk_50M);
     
     initial begin
         I_clk = 0;
         I_rst = 0;
+        
+        // Tests reset operation of clock
+        #50; I_rst = 1;
+        #20; I_rst = 0;
     end
     
     always begin

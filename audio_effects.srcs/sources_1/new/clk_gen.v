@@ -23,32 +23,32 @@
 module clk_gen(
     input I_clk,
     input I_rst,
-    output reg O_20KHz,
+    output reg O_clk1,
     output O_50MHz
     );
 
     reg [20:0] cnt;
-    localparam clk_speed = 1250; 
+    parameter CLK_DIV = 1250; 
     
     assign O_50MHz = ~cnt[0];
     
     initial begin
         cnt = 0;
-        O_20KHz = 0;
+        O_clk1 = 0;
     end
     
     always @(posedge(I_clk), posedge (I_rst)) begin
         if(I_rst) begin
-            cnt <= 5'b0;
-            O_20KHz <= 1'b0;
+            cnt <= 20'd0;
+            O_clk1 <= 1'b0;
         end
-        else if (cnt == (clk_speed - 1)) begin
-            cnt <= 5'b0;
-            O_20KHz <= ~O_20KHz;
+        else if (cnt == (CLK_DIV - 1)) begin
+            cnt <= 20'd0;
+            O_clk1 <= ~O_clk1;
         end
         else begin
             cnt <= cnt + 1;
-            O_20KHz <= O_20KHz;
+            O_clk1 <= O_clk1;
         end
             
     end
