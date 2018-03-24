@@ -28,15 +28,15 @@ module clk_gen(
     );
 
     reg [20:0] cnt;
-    parameter CLK_DIV = 1250; 
-    
+    parameter CLK_DIV = 1250;
+
     assign O_50MHz = ~cnt[0];
-    
+
     initial begin
         cnt = 0;
         O_clk1 = 0;
     end
-    
+
     always @(posedge(I_clk), posedge (I_rst)) begin
         if(I_rst) begin
             cnt <= 20'd0;
@@ -50,7 +50,6 @@ module clk_gen(
             cnt <= cnt + 1;
             O_clk1 <= O_clk1;
         end
-            
     end
 
 endmodule
