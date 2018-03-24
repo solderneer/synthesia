@@ -27,20 +27,21 @@ module pitch_buffer(
     output reg [11:0] O_buffer
     );
     
-    reg [11:0] buffer[1023:0];
-    reg [11:0] rd_ptr; // Implemented in 10.2 fixed point represenation
-    reg [9:0] wr_ptr;
-    parameter wr_offset = 0;
+    parameter WR_OFFSET = 0;
+    parameter SIZE = 1024;
+    
+    reg [11:0] buffer[(SIZE-1):0];
+    reg [($clog2(SIZE)+1):0] rd_ptr; // Implemented in 10.2 fixed point represenation
+    reg [($clog2(SIZE)-1):0] wr_ptr;
 
     integer cnt;
-    
     initial begin
-        for(cnt = 0; cnt < 1024; cnt = cnt + 1) begin
+        for(cnt = 0; cnt < SIZE; cnt = cnt + 1) begin
             buffer[cnt] = 0;
         end
         
         O_buffer = 0;
-        wr_ptr = wr_offset;
+        wr_ptr = WR_OFFSET;
         rd_ptr = 0;
     end
     
@@ -60,18 +61,21 @@ module delay_buffer(
     output reg [11:0] O_data
     );
     
-    reg [11:0] buffer[32767:0];
-    reg [14:0] wr_ptr;
-    reg [14:0] rd_ptr;
+    parameter SIZE = 32768;
+    parameter WR_OFFSET = 32767;
+    
+    reg [11:0] buffer[(SIZE-1):0];
+    reg [($clog2(SIZE)-1):0] wr_ptr;
+    reg [($clog2(SIZE)-1):0] rd_ptr;
     
     integer cnt;
     
     initial begin
-        for(cnt = 0; cnt < 32767; cnt = cnt + 1) begin
+        for(cnt = 0; cnt < SIZE; cnt = cnt + 1) begin
             buffer[cnt] = 0;
         end
-        wr_ptr = 15'd32767;
-        rd_ptr = 15'd0;
+        wr_ptr = WR_OFFSET;
+        rd_ptr = 0;
         O_data = 0;
     end
     
