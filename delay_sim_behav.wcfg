@@ -3,41 +3,25 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="flag_gen_sim_behav.wdb" id="1">
+      <db_ref path="lookup_sim_behav.wdb" id="1">
          <top_modules>
-            <top_module name="flag_gen_sim" />
             <top_module name="glbl" />
+            <top_module name="lookup_sim" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="901000001fs"></ZoomEndTime>
-      <Cursor1Time time="0fs"></Cursor1Time>
+      <ZoomStartTime time="249166665fs"></ZoomStartTime>
+      <ZoomEndTime time="1150166667fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
    </zoom_setting>
-   <WVObjectSize size="6" />
-   <wvobject fp_name="/flag_gen_sim/clk_20k" type="logic">
-      <obj_property name="ElementShortName">clk_20k</obj_property>
-      <obj_property name="ObjectShortName">clk_20k</obj_property>
+   <WVObjectSize size="2" />
+   <wvobject fp_name="/lookup_sim/out" type="array">
+      <obj_property name="ElementShortName">out[11:0]</obj_property>
+      <obj_property name="ObjectShortName">out[11:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/flag_gen_sim/clk_50M" type="logic">
-      <obj_property name="ElementShortName">clk_50M</obj_property>
-      <obj_property name="ObjectShortName">clk_50M</obj_property>
-   </wvobject>
-   <wvobject fp_name="/flag_gen_sim/flag" type="logic">
-      <obj_property name="ElementShortName">flag</obj_property>
-      <obj_property name="ObjectShortName">flag</obj_property>
-   </wvobject>
-   <wvobject fp_name="/flag_gen_sim/test1/state" type="logic">
-      <obj_property name="ElementShortName">state</obj_property>
-      <obj_property name="ObjectShortName">state</obj_property>
-   </wvobject>
-   <wvobject fp_name="/flag_gen_sim/test1/prev_state" type="logic">
-      <obj_property name="ElementShortName">prev_state</obj_property>
-      <obj_property name="ObjectShortName">prev_state</obj_property>
-   </wvobject>
-   <wvobject fp_name="/flag_gen_sim/test/cnt" type="array">
-      <obj_property name="ElementShortName">cnt[20:0]</obj_property>
-      <obj_property name="ObjectShortName">cnt[20:0]</obj_property>
+   <wvobject fp_name="/lookup_sim/cnt" type="array">
+      <obj_property name="ElementShortName">cnt[11:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt[11:0]</obj_property>
    </wvobject>
 </wave_config>

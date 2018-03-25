@@ -1,8 +1,8 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/flag_gen.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module flag_gen
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/clk_gen.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module clk_gen
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sim_1/new/flag_gen_sim.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module flag_gen_sim
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Auora/Documents/tonedeaf/audio_effects.ip_user_files/ipstatic/dist_mem_gen_v8_0_10/simulation/dist_mem_gen_v8_0.v" into library dist_mem_gen_v8_0_10
+INFO: [VRFC 10-311] analyzing module dist_mem_gen_v8_0_10
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/sine_lut/sim/sine_lut.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sine_lut
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sim_1/new/lookup_sim.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lookup_sim
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Auora/Documents/tonedeaf/audio_effects.sim/sim_1/behav/glbl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module glbl
