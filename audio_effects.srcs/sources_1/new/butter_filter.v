@@ -22,29 +22,28 @@
 
 module butter_filter(
     input I_clk,
-    input I_sampleclk,
     input [11:0] I_input,
+    input I_flag,
     input I_rst,
     output [11:0] O_output
     );
     
     // a[n] coefficients
-    reg signed [31:0] a1 = 0;
-    reg signed [31:0] a2 = 0;
-    reg signed [31:0] a3 = 0;
-    reg signed [31:0] a4 = 0;
-    reg signed [31:0] a5 = 0;
-    reg signed [31:0] a6 = 0;
-    reg signed [31:0] a7 = 0;
+    reg signed [31:0] a1 = 32'hFFF81594;
+    reg signed [31:0] a2 = 32'hFFF6D9DD;
+    reg signed [31:0] a3 = 32'hFFFBBCE8;
+    reg signed [31:0] a4 = 32'hFFFE4797;
+    reg signed [31:0] a5 = 32'hFFFFAF65;
+    reg signed [31:0] a6 = 32'hFFFFF7FB;
     
     // b[n] coefficients
-    reg signed [31:0] b1 = 0;
-    reg signed [31:0] b2 = 0;
-    reg signed [31:0] b3 = 0;
-    reg signed [31:0] b4 = 0;    
-    reg signed [31:0] b5 = 0;
-    reg signed [31:0] b6 = 0;
-    reg signed [31:0] b7 = 0;
+    reg signed [31:0] b1 = 32'h80000;
+    reg signed [31:0] b2 = 32'h300000;
+    reg signed [31:0] b3 = 32'h780000;
+    reg signed [31:0] b4 = 32'hA00000;    
+    reg signed [31:0] b5 = 32'h780000;
+    reg signed [31:0] b6 = 32'h300000;
+    reg signed [31:0] b7 = 32'h80000;
     
     // filter state vars
     wire signed [31:0] f1_new, f1_coeff_x;
@@ -61,9 +60,7 @@ module butter_filter(
     // Temporary value holder
     reg signed [31:0] temp_out;
     
-    // Input sample present
-    reg sample_avail;
-    
+    // Multiply Accumulate (MAC)
     signed_mult mult1 (f1_val, f1_coeff, f1_coeff_x);
     to_fixedpt (I_input, I_fxdpt);
     reverse_fixedpt (temp_out, O_output);
@@ -99,7 +96,6 @@ module butter_filter(
                     f1_val <= I_fxdpt;
                     x_n <= I_fxdpt;
                     
-                    sample_avail <= 0;
                     state <= 4'd2;
                 end
                 (2) : 
@@ -206,11 +202,11 @@ module butter_filter(
                     x_n5 <= x_n4;
                     x_n6 <= x_n5;
                     
-                    state = 4'd15;
+                    state <= 4'd15;
                 end
                 (15) :
                 begin
-                    if (sample_avail) begin
+                    if (I_flag) begin
                         state = 4'd1;
                     end
                 end
@@ -221,14 +217,9 @@ module butter_filter(
             endcase
         end
     end
-    
-    always @(posedge I_sampleclk) begin
-        sample_avail <= 1;
-    end
-    
 endmodule
 
-// Signed mult of 2.30 format 2' complement
+// Signed mult of Q13.19 format 2' complement
 module signed_mult (
     input signed [31:0] a,
     input signed [31:0] b,
@@ -237,11 +228,11 @@ module signed_mult (
     
     wire signed [63:0] multi_out;
     
-    assign multi_out = a * b;
-    assign out = {multi_out[63], multi_out[59:30]};
+    assign multi_out = a * b; // Ouput is of format Q26.38
+    assign out = {multi_out[63], multi_out[49:19]}; // Truncating output to Q13.19
 endmodule
 
-// Convert 12-bit unsigned into to 2.30 format 2'complement)
+// Convert 12-bit unsigned into to Q13.19 format 2'complement (always positive)
 module to_fixedpt (
     input [11:0] a,
     output [31:0] out
@@ -250,7 +241,7 @@ module to_fixedpt (
     assign out = {{1'b0, a[11:0]}, 19'd0}; 
 endmodule
 
-// Convert 2.30 format 2' complement to 12 bit unsigned
+// Convert Q13.19 format 2' complement to 12 bit unsigned
 module reverse_fixedpt (
     input [31:0] a,
     output [11:0] out
