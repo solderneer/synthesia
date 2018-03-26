@@ -32,7 +32,7 @@ module signal_gen(
     
     initial begin
         rd_ptr = 0;
-        delta = 32'h03594BCC;
+        delta = 32'h1ACA5E5;
     end
     
     always @(posedge I_clk) begin
