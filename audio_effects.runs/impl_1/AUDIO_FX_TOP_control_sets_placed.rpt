@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Sun Mar 25 14:20:40 2018
+| Date         : Mon Mar 26 09:41:05 2018
 | Host         : DESKTOP-URB8A7L running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file AUDIO_FX_TOP_control_sets_placed.rpt
 | Design       : AUDIO_FX_TOP
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    16 |
-| Unused register locations in slices containing registers |    66 |
+| Number of unique control sets                            |     9 |
+| Unused register locations in slices containing registers |    40 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,37 +33,30 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              87 |           26 |
+| No           | No                    | No                     |              36 |           13 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              32 |            8 |
-| Yes          | No                    | No                     |             321 |           86 |
+| Yes          | No                    | No                     |              12 |            6 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              46 |           14 |
+| Yes          | Yes                   | No                     |               8 |            2 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 3. Detailed Control Set Information
 -----------------------------------
 
-+------------------------+---------------------------------------+--------------------------+------------------+----------------+
-|      Clock Signal      |             Enable Signal             |     Set/Reset Signal     | Slice Load Count | Bel Load Count |
-+------------------------+---------------------------------------+--------------------------+------------------+----------------+
-|  u2/J_DA2_Pin4_OBUF    |                                       |                          |                1 |              2 |
-|  CLK_IBUF_BUFG         |                                       |                          |                3 |              3 |
-|  u2/J_DA2_Pin4_OBUF    | u2/shiftCounter[3]_i_1_n_0            | u2/temp1[15]_i_1_n_0     |                1 |              4 |
-|  u2/J_DA2_Pin4_OBUF    | u2/temp2                              | u2/temp1[15]_i_1_n_0     |                1 |              4 |
-| ~lopt_1                |                                       |                          |                2 |              4 |
-| ~lopt_1                | filt1/FSM_sequential_state[3]_i_1_n_0 |                          |                2 |              4 |
-| ~lopt_1                | filt1/mult1/multi_out__1_0            | filt1/f1_val[31]_i_1_n_0 |                4 |              6 |
-|  u2/J_DA2_Pin4_OBUF    | u2/temp2                              |                          |                4 |             12 |
-| ~u1/J_MIC3_Pin4_OBUF   |                                       |                          |                2 |             12 |
-|  CLK_IBUF_BUFG         |                                       | J_MIC3_Pin1_OBUF_BUFG    |                3 |             12 |
-| ~lopt_1                | filt1/x_n_1                           |                          |                2 |             12 |
-| ~lopt_1                | filt1/mult1/multi_out__1_0            |                          |               12 |             17 |
-|  CLK_IBUF_BUFG         |                                       | clkgen/O_clk1            |                5 |             20 |
-| ~lopt_1                | filt1/mult1/multi_out__1_0            | filt1/f1_old[31]_i_1_n_0 |                8 |             32 |
-|  J_MIC3_Pin1_OBUF_BUFG |                                       |                          |               18 |             66 |
-| ~lopt_1                | filt1/x_n1                            |                          |               66 |            276 |
-+------------------------+---------------------------------------+--------------------------+------------------+----------------+
++------------------------+----------------------------+-----------------------+------------------+----------------+
+|      Clock Signal      |        Enable Signal       |    Set/Reset Signal   | Slice Load Count | Bel Load Count |
++------------------------+----------------------------+-----------------------+------------------+----------------+
+| ~clkgen/Q[0]           |                            |                       |                1 |              1 |
+|  u2/J_DA2_Pin4_OBUF    |                            |                       |                1 |              2 |
+|  CLK_IBUF_BUFG         |                            |                       |                3 |              3 |
+|  u2/J_DA2_Pin4_OBUF    | u2/shiftCounter[3]_i_1_n_0 | u2/temp1[15]_i_1_n_0  |                1 |              4 |
+|  u2/J_DA2_Pin4_OBUF    | u2/temp2                   | u2/temp1[15]_i_1_n_0  |                1 |              4 |
+|  u2/J_DA2_Pin4_OBUF    | u2/temp2                   |                       |                6 |             12 |
+|  CLK_IBUF_BUFG         |                            | J_MIC3_Pin1_OBUF_BUFG |                3 |             12 |
+|  CLK_IBUF_BUFG         |                            | clkgen/O_clk1         |                5 |             20 |
+|  J_MIC3_Pin1_OBUF_BUFG |                            |                       |                8 |             30 |
++------------------------+----------------------------+-----------------------+------------------+----------------+
 
 

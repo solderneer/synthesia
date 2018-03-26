@@ -52,17 +52,21 @@ module AUDIO_FX_TOP(
       wire [11:0] buf1_out;
       wire [11:0] buf2_out;
       wire [11:0] filt_out;
+      wire [11:0] sigen_out;
       
       wire sample_flag;
       
-      reg filt_rst = 0; 
+      reg filt_rst = 0;
+      reg [3:0] delta_sel = 4'b1100;
+      
+      signal_gen sg1 (clk_20k, speaker_out); 
       
       // delay_buffer #(.SIZE(32768),.WR_OFFSET(12768)) buf1 (clk_20k, MIC_in, buf1_out);
-      pitch_shift buf2 (clk_20k, MIC_in, delta, buf2_out);
-      flag_gen sample_flg (clk_50M, clk_20k, sample_flag);
-      butter_filter filt1 (clk_50M, buf2_out, sample_flag, filt_rst, filt_out); 
+      // pitch_shift buf2 (clk_20k, sigen_out, delta_sel, speaker_out);
+      // flag_gen sample_flg (clk_50M, clk_20k, sample_flag);
+      // butter_filter filt1 (clk_50M, buf2_out, sample_flag, filt_rst, filt_out); 
           
-      assign speaker_out = (SW1) ? filt_out : buf2_out;
+      // assign speaker_out = (SW1) ? filt_out : buf2_out;
     /////////////////////////////////////////////////////////////////////////////////////
     //DAC Module: Digital-to-Analog Conversion
     //Do not change the codes in this area        

@@ -29,7 +29,7 @@ module butter_filter(
     );
     
     // a[n] coefficients
-    reg signed [31:0] a1 = 32'hFFF81594;
+    reg signed [31:0] a1 = 32'hFFF81594; // in Q13.18 fixed point represenation
     reg signed [31:0] a2 = 32'hFFF6D9DD;
     reg signed [31:0] a3 = 32'hFFFBBCE8;
     reg signed [31:0] a4 = 32'hFFFE4797;
@@ -37,7 +37,7 @@ module butter_filter(
     reg signed [31:0] a6 = 32'hFFFFF7FB;
     
     // b[n] coefficients
-    reg signed [31:0] b1 = 32'h80000;
+    reg signed [31:0] b1 = 32'h80000; // in Q13.18 fixed point representation
     reg signed [31:0] b2 = 32'h300000;
     reg signed [31:0] b3 = 32'h780000;
     reg signed [31:0] b4 = 32'hA00000;    

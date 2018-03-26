@@ -15,13 +15,13 @@ set_property webtalk.parent_dir C:/Users/Auora/Documents/tonedeaf/audio_effects.
 set_property parent.project_path C:/Users/Auora/Documents/tonedeaf/audio_effects.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+add_files c:/Users/Auora/Documents/tonedeaf/sin_lookup.coe
+add_files -quiet c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.dcp
+set_property used_in_implementation false [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.dcp]
 read_verilog -library xil_defaultlib {
-  C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/buffers.v
-  C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/flag_gen.v
-  C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/butter_filter.v
+  C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/signal_gen.v
   C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/SPI.v
   C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/clk_gen.v
-  C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/pitch_shift.v
   C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/AUDIO_FX_TOP.v
 }
 read_vhdl -library xil_defaultlib C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/imports/audio_effects.srcs/DA2CompRef.vhd

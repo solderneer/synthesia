@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Sun Mar 25 14:20:09 2018
+| Date         : Mon Mar 26 09:40:35 2018
 | Host         : DESKTOP-URB8A7L running 64-bit major release  (build 9200)
 | Command      : report_utilization -file AUDIO_FX_TOP_utilization_synth.rpt -pb AUDIO_FX_TOP_utilization_synth.pb
 | Design       : AUDIO_FX_TOP
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |  297 |     0 |     20800 |  1.43 |
-|   LUT as Logic          |  297 |     0 |     20800 |  1.43 |
+| Slice LUTs*             |   65 |     0 |     20800 |  0.31 |
+|   LUT as Logic          |   65 |     0 |     20800 |  0.31 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |  486 |     0 |     41600 |  1.17 |
-|   Register as Flip Flop |  486 |     0 |     41600 |  1.17 |
+| Slice Registers         |   88 |     0 |     41600 |  0.21 |
+|   Register as Flip Flop |   88 |     0 |     41600 |  0.21 |
 |   Register as Latch     |    0 |     0 |     41600 |  0.00 |
 | F7 Muxes                |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
@@ -57,33 +57,31 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 486   |          Yes |       Reset |            - |
+| 88    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
 2. Memory
 ---------
 
-+-------------------+------+-------+-----------+-------+
-|     Site Type     | Used | Fixed | Available | Util% |
-+-------------------+------+-------+-----------+-------+
-| Block RAM Tile    |    1 |     0 |        50 |  2.00 |
-|   RAMB36/FIFO*    |    0 |     0 |        50 |  0.00 |
-|   RAMB18          |    2 |     0 |       100 |  2.00 |
-|     RAMB18E1 only |    2 |       |           |       |
-+-------------------+------+-------+-----------+-------+
++----------------+------+-------+-----------+-------+
+|    Site Type   | Used | Fixed | Available | Util% |
++----------------+------+-------+-----------+-------+
+| Block RAM Tile |    0 |     0 |        50 |  0.00 |
+|   RAMB36/FIFO* |    0 |     0 |        50 |  0.00 |
+|   RAMB18       |    0 |     0 |       100 |  0.00 |
++----------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
 
 
 3. DSP
 ------
 
-+----------------+------+-------+-----------+-------+
-|    Site Type   | Used | Fixed | Available | Util% |
-+----------------+------+-------+-----------+-------+
-| DSPs           |    4 |     0 |        90 |  4.44 |
-|   DSP48E1 only |    4 |       |           |       |
-+----------------+------+-------+-----------+-------+
++-----------+------+-------+-----------+-------+
+| Site Type | Used | Fixed | Available | Util% |
++-----------+------+-------+-----------+-------+
+| DSPs      |    0 |     0 |        90 |  0.00 |
++-----------+------+-------+-----------+-------+
 
 
 4. IO and GT Specific
@@ -92,7 +90,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   13 |     0 |       106 | 12.26 |
+| Bonded IOB                  |    7 |     0 |       106 |  6.60 |
 | Bonded IPADs                |    0 |     0 |        10 |  0.00 |
 | Bonded OPADs                |    0 |     0 |         4 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         5 |  0.00 |
@@ -151,28 +149,28 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  486 |        Flop & Latch |
-| LUT2     |  111 |                 LUT |
-| LUT6     |  105 |                 LUT |
-| CARRY4   |   38 |          CarryLogic |
-| LUT4     |   37 |                 LUT |
-| LUT5     |   25 |                 LUT |
-| LUT3     |   25 |                 LUT |
-| LUT1     |    8 |                 LUT |
-| IBUF     |    7 |                  IO |
+| FDRE     |   88 |        Flop & Latch |
+| LUT1     |   20 |                 LUT |
+| LUT4     |   18 |                 LUT |
+| LUT6     |   16 |                 LUT |
+| CARRY4   |   16 |          CarryLogic |
 | OBUF     |    6 |                  IO |
-| DSP48E1  |    4 |    Block Arithmetic |
-| RAMB18E1 |    2 |        Block Memory |
+| LUT3     |    6 |                 LUT |
+| LUT2     |    6 |                 LUT |
+| LUT5     |    5 |                 LUT |
 | BUFG     |    2 |               Clock |
+| IBUF     |    1 |                  IO |
 +----------+------+---------------------+
 
 
 8. Black Boxes
 --------------
 
-+----------+------+
-| Ref Name | Used |
-+----------+------+
++----------------+------+
+|    Ref Name    | Used |
++----------------+------+
+| dist_mem_gen_0 |    1 |
++----------------+------+
 
 
 9. Instantiated Netlists
