@@ -55,14 +55,14 @@ module sin_signal_gen(
     
     always @(posedge I_clk) begin
         case(I_sel)
-            (8'b0000_0001) : rd_ptr = rd_ptr + (delta_c << I_octave);
-            (8'b0000_0010) : rd_ptr = rd_ptr + (delta_d << I_octave);
-            (8'b0000_0100) : rd_ptr = rd_ptr + (delta_e << I_octave);
-            (8'b0000_1000) : rd_ptr = rd_ptr + (delta_f << I_octave);
-            (8'b0001_0000) : rd_ptr = rd_ptr + (delta_g << I_octave);
-            (8'b0010_0000) : rd_ptr = rd_ptr + (delta_a << I_octave);
-            (8'b0100_0000) : rd_ptr = rd_ptr + (delta_b << I_octave);
-            (8'b1000_0000) : rd_ptr = rd_ptr + (delta_hc << I_octave);
+            (8'b0000_0001) : rd_ptr <= rd_ptr + (delta_c << I_octave);
+            (8'b0000_0010) : rd_ptr <= rd_ptr + (delta_d << I_octave);
+            (8'b0000_0100) : rd_ptr <= rd_ptr + (delta_e << I_octave);
+            (8'b0000_1000) : rd_ptr <= rd_ptr + (delta_f << I_octave);
+            (8'b0001_0000) : rd_ptr <= rd_ptr + (delta_g << I_octave);
+            (8'b0010_0000) : rd_ptr <= rd_ptr + (delta_a << I_octave);
+            (8'b0100_0000) : rd_ptr <= rd_ptr + (delta_b << I_octave);
+            (8'b1000_0000) : rd_ptr <= rd_ptr + (delta_hc << I_octave);
         endcase
     end
 endmodule
