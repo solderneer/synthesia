@@ -14,8 +14,8 @@ set_property parent.project_path C:/Users/Auora/Documents/tonedeaf/audio_effects
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 add_files C:/Users/Auora/Documents/tonedeaf/sin_lookup.coe
-add_files -quiet c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.dcp
-set_property used_in_implementation false [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.dcp]
+add_files -quiet c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut.dcp
+set_property used_in_implementation false [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut.dcp]
 read_verilog -library xil_defaultlib {
   C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/signal_gen.v
   C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/SPI.v

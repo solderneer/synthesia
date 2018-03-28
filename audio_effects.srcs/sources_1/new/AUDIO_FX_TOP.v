@@ -24,8 +24,8 @@ module AUDIO_FX_TOP(
     output J_DA2_Pin4,    // PmodDA2 serial clock, 50MHz clock
     
     // Student defined
-    input SW1,
-    input [3:0] delta
+    input octave_sw,
+    input [7:0] sw_sel
     );
 
     //////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +59,7 @@ module AUDIO_FX_TOP(
       reg filt_rst = 0;
       reg [3:0] delta_sel = 4'b1100;
       
-      signal_gen sg1 (clk_20k, speaker_out); 
+      sin_signal_gen sg1 (clk_20k, octave_sw, sw_sel, speaker_out); 
       
       // delay_buffer #(.SIZE(32768),.WR_OFFSET(12768)) buf1 (clk_20k, MIC_in, buf1_out);
       // pitch_shift buf2 (clk_20k, sigen_out, delta_sel, speaker_out);

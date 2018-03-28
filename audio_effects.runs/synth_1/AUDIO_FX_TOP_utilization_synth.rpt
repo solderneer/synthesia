@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Mon Mar 26 18:42:41 2018
+| Date         : Wed Mar 28 16:54:55 2018
 | Host         : DESKTOP-URB8A7L running 64-bit major release  (build 9200)
 | Command      : report_utilization -file AUDIO_FX_TOP_utilization_synth.rpt -pb AUDIO_FX_TOP_utilization_synth.pb
 | Design       : AUDIO_FX_TOP
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |   65 |     0 |     20800 |  0.31 |
-|   LUT as Logic          |   65 |     0 |     20800 |  0.31 |
+| Slice LUTs*             |   87 |     0 |     20800 |  0.42 |
+|   LUT as Logic          |   87 |     0 |     20800 |  0.42 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |   88 |     0 |     41600 |  0.21 |
-|   Register as Flip Flop |   88 |     0 |     41600 |  0.21 |
+| Slice Registers         |   90 |     0 |     41600 |  0.22 |
+|   Register as Flip Flop |   90 |     0 |     41600 |  0.22 |
 |   Register as Latch     |    0 |     0 |     41600 |  0.00 |
 | F7 Muxes                |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 88    |          Yes |       Reset |            - |
+| 90    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -90,7 +90,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |    7 |     0 |       106 |  6.60 |
+| Bonded IOB                  |   16 |     0 |       106 | 15.09 |
 | Bonded IPADs                |    0 |     0 |        10 |  0.00 |
 | Bonded OPADs                |    0 |     0 |         4 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         5 |  0.00 |
@@ -149,28 +149,28 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |   88 |        Flop & Latch |
-| LUT1     |   20 |                 LUT |
-| LUT4     |   18 |                 LUT |
-| LUT6     |   16 |                 LUT |
+| FDRE     |   90 |        Flop & Latch |
+| LUT6     |   41 |                 LUT |
+| LUT4     |   21 |                 LUT |
 | CARRY4   |   16 |          CarryLogic |
+| LUT5     |   11 |                 LUT |
+| LUT3     |   10 |                 LUT |
+| LUT2     |   10 |                 LUT |
+| IBUF     |   10 |                  IO |
 | OBUF     |    6 |                  IO |
-| LUT3     |    6 |                 LUT |
-| LUT2     |    6 |                 LUT |
-| LUT5     |    5 |                 LUT |
+| LUT1     |    6 |                 LUT |
 | BUFG     |    2 |               Clock |
-| IBUF     |    1 |                  IO |
 +----------+------+---------------------+
 
 
 8. Black Boxes
 --------------
 
-+----------------+------+
-|    Ref Name    | Used |
-+----------------+------+
-| dist_mem_gen_0 |    1 |
-+----------------+------+
++----------+------+
+| Ref Name | Used |
++----------+------+
+| sin_lut  |    1 |
++----------+------+
 
 
 9. Instantiated Netlists
