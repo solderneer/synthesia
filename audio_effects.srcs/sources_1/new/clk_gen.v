@@ -25,8 +25,7 @@ module clk_gen(
     output O_clk1
     );
 
-    parameter CLK_DIV = 1250;
-    
+    parameter CLK_DIV = 2500;
     reg [20:0] cnt; 
 
     assign O_clk1 = (cnt < CLK_DIV/2) ? 1'b0 : 1'b1;

@@ -154,11 +154,11 @@ set_property PACKAGE_PIN G2 [get_ports {J_MIC3_Pin4}]
 set_property PACKAGE_PIN A14 [get_ports {RsRx}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {RsRx}]
 ##Sch name = JB2
-#set_property PACKAGE_PIN A16 [get_ports {JB[1]}]					
-	#set_property IOSTANDARD LVCMOS33 [get_ports {JB[1]}]
+#set_property PACKAGE_PIN A16 [get_ports {wire1}]					
+	#set_property IOSTANDARD LVCMOS33 [get_ports {wire1}]
 ##Sch name = JB3
-#set_property PACKAGE_PIN B15 [get_ports {JB[2]}]					
-	#set_property IOSTANDARD LVCMOS33 [get_ports {JB[2]}]
+#set_property PACKAGE_PIN B15 [get_ports {wire2}]					
+	#set_property IOSTANDARD LVCMOS33 [get_ports {wire2}]
 ##Sch name = JB4
 #set_property PACKAGE_PIN B16 [get_ports {JB[3]}]					
 	#set_property IOSTANDARD LVCMOS33 [get_ports {JB[3]}]
