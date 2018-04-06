@@ -43,7 +43,7 @@ module sin_signal_gen(
     initial begin
         rd_ptr = 0;
         
-        delta_c = 32'h1ACA5E5; // Calculated increment values
+        delta_c = 32'h1ACA5E5; // Calculated increment values using 
         delta_d = 32'h1E12407;
         delta_e = 32'h21C1000;
         delta_f = 32'h23C2CD6;

@@ -25,7 +25,9 @@ module AUDIO_FX_TOP(
     
     // Student defined
     input octave_sw,
-    input [7:0] sw_sel
+    input [7:0] sw_sel,
+    input RsRx,
+    output [7:0] led
     );
 
     //////////////////////////////////////////////////////////////////////////////////
@@ -33,11 +35,9 @@ module AUDIO_FX_TOP(
     // Please create the clock divider module and instantiate it here.
       wire clk_20k;
       wire clk_50M;
-      wire clk_reset;
       
-      assign clk_reset = 0;
-      
-      clk_gen #(.CLK_DIV(1250)) clkgen (CLK, clk_reset, clk_20k, clk_50M);
+      clk_gen #(.CLK_DIV(2500)) clkgen1 (CLK, clk_20k);
+      clk_gen #(.CLK_DIV(2)) clkgen2 (CLK, clk_50M);
   
      //////////////////////////////////////////////////////////////////////////////////
      //SPI Module: Converting serial data into a 12-bit parallel register
@@ -56,17 +56,21 @@ module AUDIO_FX_TOP(
       
       wire sample_flag;
       
+      wire [7:0] dataIn;
+      wire datard;
+      
       reg filt_rst = 0;
       reg [3:0] delta_sel = 4'b1100;
       
-      sin_signal_gen sg1 (clk_20k, octave_sw, sw_sel, speaker_out); 
-      
+      serial_rx rx1 (clk_50M, RsRx, datard, dataIn);
+      // sin_signal_gen sg1 (clk_20k, octave_sw, sw_sel, speaker_out); 
       // delay_buffer #(.SIZE(32768),.WR_OFFSET(12768)) buf1 (clk_20k, MIC_in, buf1_out);
       // pitch_shift buf2 (clk_20k, sigen_out, delta_sel, speaker_out);
       // flag_gen sample_flg (clk_50M, clk_20k, sample_flag);
       // butter_filter filt1 (clk_50M, buf2_out, sample_flag, filt_rst, filt_out); 
           
       // assign speaker_out = (SW1) ? filt_out : buf2_out;
+      assign led = (datard) ? (dataIn) : led;
     /////////////////////////////////////////////////////////////////////////////////////
     //DAC Module: Digital-to-Analog Conversion
     //Do not change the codes in this area        
