@@ -48,25 +48,38 @@ module AUDIO_FX_TOP(
     /////////////////////////////////////////////////////////////////////////////////////
     // Real-time Audio Effect Features
     // Please create modules to implement different features and instantiate them here   
-      wire serial_rdy;
-      wire [11:0] speaker_out;
+      wire [11:0] pitch_out;
+      wire [11:0] delay_out;
+      wire [11:0] inst_out;
+      
+      wire [3:0] delta;
       wire [2:0] oct_sel;
       wire [2:0] note_sel;
       wire filt_en;
-      wire [3:0] delta;
+      wire serial_rdy;
+
+      wire [7:0] serial_in;
+      wire [3:0] enable;
+      reg [11:0] speaker_out = 0;
       
-      reg [7:0] serial_in;
-      reg [3:0] enable;
+      serial_rx rx1 (clk_50M, RsRx, serial_rdy, serial_in);
+      inst_decoder (clk_50M, serial_in, serial_rdy, enable, oct_sel, note_sel, filt_en, delta);
+      sin_signal_gen sg1 (clk_20k, oct_sel, note_sel, inst_out); 
+      delay_buffer #(.SIZE(32768),.WR_OFFSET(20000)) buf1 (clk_20k, MIC_in, delay_out);
+      pitch_shift buf2 (clk_50M, clk_20k, MIC_in, delta, filt_en, pitch_out);
       
-      // serial_rx rx1 (clk_50M, RsRx, serial_rdy, serial_in);
-      // inst_decoder (clk_50M, serial_in, serial_rdy, enable, oct_sel, note_sel, filt_en, delta);
+      assign led = (serial_rdy) ? (serial_in) : led;
       
-      // sin_signal_gen sg1 (clk_20k, octave_sw, sw_sel, speaker_out); 
-      // delay_buffer #(.SIZE(32768),.WR_OFFSET(20000)) buf1 (clk_20k, MIC_in, speaker_out);
-      pitch_shift buf2 (clk_50M, clk_20k, MIC_in, sw_sel[4:1], sw_sel[0], speaker_out);
-                
-      // assign speaker_out = (sw_sel[0]) ? filt_out : buf2_out;
-      // assign led = (datard) ? (dataIn) : led;
+      always @(posedge clk_50M) begin
+        case(enable)
+            (4'b0000) : speaker_out <= 0;
+            (4'b0001) : speaker_out <= MIC_in;
+            (4'b0010) : speaker_out <= delay_out;
+            (4'b0100) : speaker_out <= pitch_out;
+            (4'b1000) : speaker_out <= inst_out;
+            default : speaker_out <= 0;
+        endcase
+      end
     
     /////////////////////////////////////////////////////////////////////////////////////
     //DAC Module: Digital-to-Analog Conversion

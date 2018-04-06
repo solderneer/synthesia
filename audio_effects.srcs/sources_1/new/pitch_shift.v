@@ -42,15 +42,15 @@ module pitch_shift(
     flag_gen sample_flg (I_clk, I_sampleclk, sample_flag);
     butter_filter filt1 (I_clk, buf_out[11:0], sample_flag, 1'b0, filt_out);
     
-    pitch_buffer #(.WR_OFFSET(0),.SIZE(1024)) buf1 (I_clk, I_input, I_delta, buf1_out);
-    pitch_buffer #(.WR_OFFSET(512),.SIZE(1024)) buf2 (I_clk, I_input, I_delta, buf2_out);
+    pitch_buffer #(.WR_OFFSET(0),.SIZE(1024)) buf1 (I_sampleclk, I_input, I_delta, buf1_out);
+    pitch_buffer #(.WR_OFFSET(512),.SIZE(1024)) buf2 (I_sampleclk, I_input, I_delta, buf2_out);
 
     initial begin
         buf_out = 0;
     end
     
     always @(posedge I_sampleclk) begin
-        buf_out = ((buf1_out + buf2_out) >> 1);
+        buf_out <= ((buf1_out + buf2_out) >> 1);
     end
     
     

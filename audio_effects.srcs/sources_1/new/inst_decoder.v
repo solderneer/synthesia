@@ -41,10 +41,10 @@ module inst_decoder(
     
     always @(posedge I_clk) begin
         if(I_rdy) begin
-            O_en[0] <= (I_inst[1:0] == 2'b01); // Check for passthrough mode
-            O_en[1] <= (I_inst[2:0] == 3'b100); // Check for voice delay mode
-            O_en[2] <= (I_inst[2:0] == 3'b101); // Check for voice pitch mode
-            O_en[3] <= (I_inst[1:0] == 2'b11); // Check for instrument mode
+            O_en[0] <= (I_inst[7:6] == 2'b01); // Check for passthrough mode
+            O_en[1] <= (I_inst[7:5] == 3'b100); // Check for voice delay mode
+            O_en[2] <= (I_inst[7:5] == 3'b101); // Check for voice pitch mode
+            O_en[3] <= (I_inst[7:6] == 2'b11); // Check for instrument mode
         
             O_octsel <= I_inst[5:3];
             O_notesel <= I_inst[2:0];
