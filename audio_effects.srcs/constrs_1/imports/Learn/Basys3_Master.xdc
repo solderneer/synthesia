@@ -151,8 +151,8 @@ set_property PACKAGE_PIN G2 [get_ports {J_MIC3_Pin4}]
 
 ##Pmod Header JB
 ##Sch name = JB1
-set_property PACKAGE_PIN A14 [get_ports {RsRx}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {RsRx}]
+#set_property PACKAGE_PIN A14 [get_ports {RsRx}]					
+	#set_property IOSTANDARD LVCMOS33 [get_ports {RsRx}]
 ##Sch name = JB2
 #set_property PACKAGE_PIN A16 [get_ports {wire1}]					
 	#set_property IOSTANDARD LVCMOS33 [get_ports {wire1}]
@@ -264,8 +264,8 @@ set_property PACKAGE_PIN P18 [get_ports {J_DA2_Pin4}]
 
 
 ##USB-RS232 Interface
-#set_property PACKAGE_PIN B18 [get_ports RsRx]						
-	#set_property IOSTANDARD LVCMOS33 [get_ports RsRx]
+set_property PACKAGE_PIN B18 [get_ports RsRx]						
+	set_property IOSTANDARD LVCMOS33 [get_ports RsRx]
 #set_property PACKAGE_PIN A18 [get_ports RsTx]						
 	#set_property IOSTANDARD LVCMOS33 [get_ports RsTx]
 

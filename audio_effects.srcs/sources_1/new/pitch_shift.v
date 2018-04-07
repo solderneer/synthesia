@@ -31,7 +31,7 @@ module pitch_shift(
     
     wire [11:0] buf1_out;
     wire [11:0] buf2_out;
-    wire [11:0] raw_out;
+    wire [11:0] raw;
     wire output_rdy;
     wire sample_flag;
     
@@ -41,7 +41,7 @@ module pitch_shift(
     assign O_output = (I_filten) ? filt_out : buf_out[11:0];
     
     flag_gen sample_flg (I_clk, I_sampleclk, sample_flag);
-    fir_filter filt1 (I_clk, sample_flag, buf_out[11:0], output_rdy, raw_out);
+    pitch_filter filt1 (I_clk, sample_flag, buf_out[11:0], output_rdy, raw);
     
     pitch_buffer #(.WR_OFFSET(0),.SIZE(1024)) buf1 (I_sampleclk, I_input, I_delta, buf1_out);
     pitch_buffer #(.WR_OFFSET(512),.SIZE(1024)) buf2 (I_sampleclk, I_input, I_delta, buf2_out);
@@ -56,7 +56,7 @@ module pitch_shift(
     
     always @(posedge I_clk) begin
         if(output_rdy) begin
-            filt_out <= raw_out;
+            filt_out <= raw;
         end
     end
     

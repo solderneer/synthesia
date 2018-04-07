@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Sat Apr 07 22:59:12 2018
+# Process ID: 8848
+# Current directory: C:/Users/Auora/Desktop/audio_effects/audio_effects.runs/fir_filter_synth_1
+# Command line: vivado.exe -log fir_filter.vds -mode batch -messageDb vivado.pb -notrace -source fir_filter.tcl
+# Log file: C:/Users/Auora/Desktop/audio_effects/audio_effects.runs/fir_filter_synth_1/fir_filter.vds
+# Journal file: C:/Users/Auora/Desktop/audio_effects/audio_effects.runs/fir_filter_synth_1\vivado.jou
+#-----------------------------------------------------------
+source fir_filter.tcl -notrace

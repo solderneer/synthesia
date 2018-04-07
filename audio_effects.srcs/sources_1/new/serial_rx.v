@@ -27,7 +27,6 @@ module serial_rx (
     );
 
     // wire baud_div;
-    wire baud_tick;
     wire baud_clk;
     wire dummy1, dummy2;
     
@@ -40,10 +39,8 @@ module serial_rx (
     parameter CLK_RATE = 50000000;
     
     // clk dividers
-    
-    // clk_gen #(.CLK_DIV(54)) baud8gen  (I_clk, baud_tick); // Leave last one unattached
-    // flag_gen baud_flg (I_clk, baud_tick, baud_clk);
-    
+    //clk_gen #(.CLK_DIV(217)) baudgen (I_clk, clk_reset, baud_div, dummy1); // Leave last one unattached
+    // clk_gen #(.CLK_DIV(54)) baud8gen  (I_clk, baud_clk); // Leave last one unattached
     BaudTickGen #(50000000, 115200, 8) tickgen(.clk(I_clk), .enable(1'b1), .tick(baud_clk));
     
     initial begin
@@ -77,14 +74,13 @@ module serial_rx (
         end
     end
     
-    reg [2:0] baudcnt = 0;
+    reg [2:0] OversamplingCnt = 0;
     always @(posedge I_clk) begin
         if(baud_clk) begin
-            baudcnt <= (state==0) ? 1'd0 : baudcnt + 1'd1;
+            OversamplingCnt <= (state==0) ? 1'd0 : OversamplingCnt + 1'd1;
         end
     end
-    
-    wire sampleNow = baud_clk && (baudcnt==3);
+    wire sampleNow = baud_clk && (OversamplingCnt==3);
     
     // state machine
     always @(posedge I_clk) begin
@@ -121,7 +117,7 @@ module serial_rx (
     end
 endmodule
 
-// Code obtained for parameterized tick generator below from fpga4fun.com
+// Baud Tick generator obtained from fpga4fun.com
 module BaudTickGen(
 	input clk, enable,
 	output tick  // generate a tick at the specified baud rate * oversampling

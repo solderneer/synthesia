@@ -51,22 +51,22 @@ set rc [catch {
   set_param xicom.use_bs_reader 1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/Auora/Documents/tonedeaf/audio_effects.cache/wt [current_project]
-  set_property parent.project_path C:/Users/Auora/Documents/tonedeaf/audio_effects.xpr [current_project]
-  set_property ip_repo_paths c:/Users/Auora/Documents/tonedeaf/audio_effects.cache/ip [current_project]
-  set_property ip_output_repo c:/Users/Auora/Documents/tonedeaf/audio_effects.cache/ip [current_project]
-  add_files -quiet C:/Users/Auora/Documents/tonedeaf/audio_effects.runs/synth_1/AUDIO_FX_TOP.dcp
-  add_files -quiet c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut.dcp
-  set_property netlist_only true [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut.dcp]
-  add_files -quiet c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/pitch_filter/pitch_filter.dcp
-  set_property netlist_only true [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/pitch_filter/pitch_filter.dcp]
-  read_xdc -mode out_of_context -ref sin_lut -cells U0 c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut_ooc.xdc
-  set_property processing_order EARLY [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut_ooc.xdc]
-  read_xdc -mode out_of_context -ref pitch_filter -cells U0 c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/pitch_filter/pitch_filter_ooc.xdc
-  set_property processing_order EARLY [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/pitch_filter/pitch_filter_ooc.xdc]
-  read_xdc -ref pitch_filter -cells U0 c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/pitch_filter/fir_compiler_v7_2_6/constraints/fir_compiler_v7_2.xdc
-  set_property processing_order EARLY [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/pitch_filter/fir_compiler_v7_2_6/constraints/fir_compiler_v7_2.xdc]
-  read_xdc C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/constrs_1/imports/Learn/Basys3_Master.xdc
+  set_property webtalk.parent_dir C:/Users/Auora/Desktop/audio_effects/audio_effects.cache/wt [current_project]
+  set_property parent.project_path C:/Users/Auora/Desktop/audio_effects/audio_effects.xpr [current_project]
+  set_property ip_repo_paths c:/Users/Auora/Desktop/audio_effects/audio_effects.cache/ip [current_project]
+  set_property ip_output_repo c:/Users/Auora/Desktop/audio_effects/audio_effects.cache/ip [current_project]
+  add_files -quiet C:/Users/Auora/Desktop/audio_effects/audio_effects.runs/synth_1/AUDIO_FX_TOP.dcp
+  add_files -quiet C:/Users/Auora/Desktop/audio_effects/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut.dcp
+  set_property netlist_only true [get_files C:/Users/Auora/Desktop/audio_effects/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut.dcp]
+  add_files -quiet C:/Users/Auora/Desktop/audio_effects/audio_effects.srcs/sources_1/ip/fir_filter/fir_filter.dcp
+  set_property netlist_only true [get_files C:/Users/Auora/Desktop/audio_effects/audio_effects.srcs/sources_1/ip/fir_filter/fir_filter.dcp]
+  read_xdc -mode out_of_context -ref sin_lut -cells U0 c:/Users/Auora/Desktop/audio_effects/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut_ooc.xdc
+  set_property processing_order EARLY [get_files c:/Users/Auora/Desktop/audio_effects/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut_ooc.xdc]
+  read_xdc -mode out_of_context -ref fir_filter -cells U0 c:/Users/Auora/Desktop/audio_effects/audio_effects.srcs/sources_1/ip/fir_filter/fir_filter_ooc.xdc
+  set_property processing_order EARLY [get_files c:/Users/Auora/Desktop/audio_effects/audio_effects.srcs/sources_1/ip/fir_filter/fir_filter_ooc.xdc]
+  read_xdc -ref fir_filter -cells U0 c:/Users/Auora/Desktop/audio_effects/audio_effects.srcs/sources_1/ip/fir_filter/fir_compiler_v7_2_6/constraints/fir_compiler_v7_2.xdc
+  set_property processing_order EARLY [get_files c:/Users/Auora/Desktop/audio_effects/audio_effects.srcs/sources_1/ip/fir_filter/fir_compiler_v7_2_6/constraints/fir_compiler_v7_2.xdc]
+  read_xdc C:/Users/Auora/Desktop/audio_effects/audio_effects.srcs/constrs_1/imports/Learn/Basys3_Master.xdc
   link_design -top AUDIO_FX_TOP -part xc7a35tcpg236-1
   write_hwdef -file AUDIO_FX_TOP.hwdef
   close_msg_db -file init_design.pb
