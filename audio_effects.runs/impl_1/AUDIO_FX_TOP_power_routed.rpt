@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Fri Apr 06 23:18:37 2018
+| Date             : Sat Apr 07 21:28:55 2018
 | Host             : DESKTOP-URB8A7L running 64-bit major release  (build 9200)
 | Command          : report_power -file AUDIO_FX_TOP_power_routed.rpt -pb AUDIO_FX_TOP_power_summary_routed.pb -rpx AUDIO_FX_TOP_power_routed.rpx
 | Design           : AUDIO_FX_TOP
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.095 |
-| Dynamic (W)              | 0.023 |
+| Total On-Chip Power (W)  | 0.106 |
+| Dynamic (W)              | 0.034 |
 | Device Static (W)        | 0.072 |
 | Effective TJA (C/W)      | 5.0   |
 | Max Ambient (C)          | 84.5  |
@@ -46,24 +46,25 @@ Table of Contents
 1.1 On-Chip Components
 ----------------------
 
-+----------------+-----------+----------+-----------+-----------------+
-| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
-+----------------+-----------+----------+-----------+-----------------+
-| Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.003 |     2308 |       --- |             --- |
-|   LUT as Logic |     0.003 |     1234 |     20800 |            5.93 |
-|   CARRY4       |    <0.001 |      122 |      8150 |            1.50 |
-|   Register     |    <0.001 |      649 |     41600 |            1.56 |
-|   BUFG         |    <0.001 |        2 |        32 |            6.25 |
-|   Others       |     0.000 |       33 |       --- |             --- |
-|   F7/F8 Muxes  |     0.000 |      224 |     32600 |            0.69 |
-| Signals        |     0.005 |     1937 |       --- |             --- |
-| Block RAM      |     0.001 |       13 |        50 |           26.00 |
-| DSPs           |     0.003 |        4 |        90 |            4.44 |
-| I/O            |     0.009 |       17 |       106 |           16.04 |
-| Static Power   |     0.072 |          |           |                 |
-| Total          |     0.095 |          |           |                 |
-+----------------+-----------+----------+-----------+-----------------+
++-------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
++-------------------------+-----------+----------+-----------+-----------------+
+| Clocks                  |    <0.001 |        3 |       --- |             --- |
+| Slice Logic             |     0.011 |     1720 |       --- |             --- |
+|   LUT as Logic          |     0.011 |      848 |     20800 |            4.08 |
+|   F7/F8 Muxes           |    <0.001 |      236 |     32600 |            0.72 |
+|   CARRY4                |    <0.001 |       51 |      8150 |            0.63 |
+|   Register              |    <0.001 |      446 |     41600 |            1.07 |
+|   LUT as Shift Register |    <0.001 |       15 |      9600 |            0.16 |
+|   BUFG                  |    <0.001 |        2 |        32 |            6.25 |
+|   Others                |     0.000 |       57 |       --- |             --- |
+| Signals                 |     0.010 |     1049 |       --- |             --- |
+| Block RAM               |     0.001 |     13.5 |        50 |           27.00 |
+| DSPs                    |     0.001 |        1 |        90 |            1.11 |
+| I/O                     |     0.009 |       17 |       106 |           16.04 |
+| Static Power            |     0.072 |          |           |                 |
+| Total                   |     0.106 |          |           |                 |
++-------------------------+-----------+----------+-----------+-----------------+
 
 
 1.2 Power Supply Summary
@@ -72,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.024 |       0.014 |      0.010 |
+| Vccint    |       1.000 |     0.035 |       0.025 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
 | Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -138,27 +139,48 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+------------------+-----------+
-| Name             | Power (W) |
-+------------------+-----------+
-| AUDIO_FX_TOP     |     0.023 |
-|   buf1           |     0.002 |
-|   buf2           |     0.009 |
-|     buf1         |    <0.001 |
-|     buf2         |    <0.001 |
-|     filt1        |     0.008 |
-|       mult1      |     0.005 |
-|     sample_flg   |    <0.001 |
-|   clkgen1        |    <0.001 |
-|   clkgen2        |    <0.001 |
-|   nolabel_line66 |    <0.001 |
-|   rx1            |    <0.001 |
-|     tickgen      |    <0.001 |
-|   sg1            |    <0.001 |
-|     lut1         |     0.000 |
-|       U0         |     0.000 |
-|   u1             |    <0.001 |
-|   u2             |    <0.001 |
-+------------------+-----------+
++-------------------------------------------------------------------------------------------------------+-----------+
+| Name                                                                                                  | Power (W) |
++-------------------------------------------------------------------------------------------------------+-----------+
+| AUDIO_FX_TOP                                                                                          |     0.034 |
+|   buf1                                                                                                |     0.002 |
+|   buf2                                                                                                |     0.004 |
+|     buf1                                                                                              |    <0.001 |
+|     buf2                                                                                              |    <0.001 |
+|     filt1                                                                                             |     0.003 |
+|       filt1                                                                                           |     0.003 |
+|         U0                                                                                            |     0.003 |
+|           i_synth                                                                                     |     0.003 |
+|             g_single_rate.i_single_rate                                                               |     0.003 |
+|               g_s_data_chan_fifo.i_s_data_chan_fifo                                                   |    <0.001 |
+|                 fifo0                                                                                 |    <0.001 |
+|               g_semi_parallel_and_smac.g_cntrl_signals[3].i_delay                                     |    <0.001 |
+|               g_semi_parallel_and_smac.g_cntrl_signals[7].i_delay                                     |    <0.001 |
+|               g_semi_parallel_and_smac.g_cntrl_signals[9].i_delay                                     |    <0.001 |
+|               g_semi_parallel_and_smac.g_paths[0].g_data_array.g_madd[0].g_wrap_buff.i_data_wrap_buff |    <0.001 |
+|                 g_buff.i_buff                                                                         |    <0.001 |
+|               g_semi_parallel_and_smac.g_paths[0].g_mem_array[0].i_mem                                |    <0.001 |
+|                 g_packed.g_true_dual_port.i_mem                                                       |    <0.001 |
+|               g_semi_parallel_and_smac.g_paths[0].g_mem_array[1].i_mem                                |    <0.001 |
+|                 g_individual.i_mem_a                                                                  |    <0.001 |
+|               g_semi_parallel_and_smac.g_paths[0].g_smac.i_maccum                                     |     0.001 |
+|                 i_addsub_mult_accum                                                                   |     0.001 |
+|               g_semi_parallel_and_smac.i_accumulate                                                   |    <0.001 |
+|               g_semi_parallel_and_smac.i_cntrl_coef_addr                                              |    <0.001 |
+|               g_semi_parallel_and_smac.i_data_in                                                      |    <0.001 |
+|               g_semi_parallel_and_smac.i_latch_op                                                     |    <0.001 |
+|               g_semi_parallel_and_smac.i_load                                                         |    <0.001 |
+|     sample_flg                                                                                        |    <0.001 |
+|   clkgen1                                                                                             |    <0.001 |
+|   clkgen2                                                                                             |    <0.001 |
+|   nolabel_line66                                                                                      |    <0.001 |
+|   rx1                                                                                                 |    <0.001 |
+|     tickgen                                                                                           |    <0.001 |
+|   sg1                                                                                                 |     0.017 |
+|     lut1                                                                                              |     0.012 |
+|       U0                                                                                              |     0.012 |
+|   u1                                                                                                  |    <0.001 |
+|   u2                                                                                                  |    <0.001 |
++-------------------------------------------------------------------------------------------------------+-----------+
 
 

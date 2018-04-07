@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Fri Apr 06 23:17:35 2018
+| Date         : Sat Apr 07 21:27:54 2018
 | Host         : DESKTOP-URB8A7L running 64-bit major release  (build 9200)
 | Command      : report_utilization -file AUDIO_FX_TOP_utilization_synth.rpt -pb AUDIO_FX_TOP_utilization_synth.pb
 | Design       : AUDIO_FX_TOP
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |  654 |     0 |     20800 |  3.14 |
-|   LUT as Logic          |  654 |     0 |     20800 |  3.14 |
+| Slice LUTs*             |  202 |     0 |     20800 |  0.97 |
+|   LUT as Logic          |  202 |     0 |     20800 |  0.97 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |  649 |     0 |     41600 |  1.56 |
-|   Register as Flip Flop |  641 |     0 |     41600 |  1.54 |
+| Slice Registers         |  314 |     0 |     41600 |  0.75 |
+|   Register as Flip Flop |  306 |     0 |     41600 |  0.74 |
 |   Register as Latch     |    8 |     0 |     41600 |  0.02 |
 | F7 Muxes                |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 8     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 641   |          Yes |       Reset |            - |
+| 306   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -79,12 +79,11 @@ Table of Contents
 3. DSP
 ------
 
-+----------------+------+-------+-----------+-------+
-|    Site Type   | Used | Fixed | Available | Util% |
-+----------------+------+-------+-----------+-------+
-| DSPs           |    4 |     0 |        90 |  4.44 |
-|   DSP48E1 only |    4 |       |           |       |
-+----------------+------+-------+-----------+-------+
++-----------+------+-------+-----------+-------+
+| Site Type | Used | Fixed | Available | Util% |
++-----------+------+-------+-----------+-------+
+| DSPs      |    0 |     0 |        90 |  0.00 |
++-----------+------+-------+-----------+-------+
 
 
 4. IO and GT Specific
@@ -152,18 +151,17 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  641 |        Flop & Latch |
-| LUT6     |  208 |                 LUT |
-| LUT2     |  167 |                 LUT |
-| LUT3     |  166 |                 LUT |
-| CARRY4   |  122 |          CarryLogic |
-| LUT4     |   66 |                 LUT |
-| LUT5     |   51 |                 LUT |
-| LUT1     |   23 |                 LUT |
+| FDRE     |  306 |        Flop & Latch |
+| LUT6     |   68 |                 LUT |
+| LUT2     |   60 |                 LUT |
+| CARRY4   |   49 |          CarryLogic |
+| LUT5     |   35 |                 LUT |
+| LUT4     |   33 |                 LUT |
+| LUT3     |   16 |                 LUT |
+| LUT1     |   16 |                 LUT |
 | OBUF     |   14 |                  IO |
 | RAMB36E1 |   12 |        Block Memory |
 | LDCE     |    8 |        Flop & Latch |
-| DSP48E1  |    4 |    Block Arithmetic |
 | IBUF     |    3 |                  IO |
 | BUFG     |    3 |               Clock |
 | RAMB18E1 |    2 |        Block Memory |
@@ -173,11 +171,12 @@ Table of Contents
 8. Black Boxes
 --------------
 
-+----------+------+
-| Ref Name | Used |
-+----------+------+
-| sin_lut  |    1 |
-+----------+------+
++--------------+------+
+|   Ref Name   | Used |
++--------------+------+
+| sin_lut      |    1 |
+| pitch_filter |    1 |
++--------------+------+
 
 
 9. Instantiated Netlists

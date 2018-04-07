@@ -53,12 +53,12 @@ module sin_signal_gen(
     always @(posedge I_clk) begin
         case(I_sel)
             (3'b001) : rd_ptr <= (I_octave[2]) ? (rd_ptr + (delta_c << I_octave[1:0])) : (rd_ptr + (delta_c >> I_octave[1:0]));
-            (3'b010) : rd_ptr <= (I_octave[2]) ? (rd_ptr + (delta_d << I_octave[1:0])) : (rd_ptr + (delta_c >> I_octave[1:0]));
-            (3'b011) : rd_ptr <= (I_octave[2]) ? (rd_ptr + (delta_e << I_octave[1:0])) : (rd_ptr + (delta_c >> I_octave[1:0]));
-            (3'b100) : rd_ptr <= (I_octave[2]) ? (rd_ptr + (delta_f << I_octave[1:0])) : (rd_ptr + (delta_c >> I_octave[1:0]));
-            (3'b101) : rd_ptr <= (I_octave[2]) ? (rd_ptr + (delta_g << I_octave[1:0])) : (rd_ptr + (delta_c >> I_octave[1:0]));
-            (3'b110) : rd_ptr <= (I_octave[2]) ? (rd_ptr + (delta_a << I_octave[1:0])) : (rd_ptr + (delta_c >> I_octave[1:0]));
-            (3'b111) : rd_ptr <= (I_octave[2]) ? (rd_ptr + (delta_b << I_octave[1:0])) : (rd_ptr + (delta_c >> I_octave[1:0]));
+            (3'b010) : rd_ptr <= (I_octave[2]) ? (rd_ptr + (delta_d << I_octave[1:0])) : (rd_ptr + (delta_d >> I_octave[1:0]));
+            (3'b011) : rd_ptr <= (I_octave[2]) ? (rd_ptr + (delta_e << I_octave[1:0])) : (rd_ptr + (delta_e >> I_octave[1:0]));
+            (3'b100) : rd_ptr <= (I_octave[2]) ? (rd_ptr + (delta_f << I_octave[1:0])) : (rd_ptr + (delta_f >> I_octave[1:0]));
+            (3'b101) : rd_ptr <= (I_octave[2]) ? (rd_ptr + (delta_g << I_octave[1:0])) : (rd_ptr + (delta_g >> I_octave[1:0]));
+            (3'b110) : rd_ptr <= (I_octave[2]) ? (rd_ptr + (delta_a << I_octave[1:0])) : (rd_ptr + (delta_a >> I_octave[1:0]));
+            (3'b111) : rd_ptr <= (I_octave[2]) ? (rd_ptr + (delta_b << I_octave[1:0])) : (rd_ptr + (delta_b >> I_octave[1:0]));
         endcase
     end
 endmodule

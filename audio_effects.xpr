@@ -31,13 +31,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="10"/>
-    <Option Name="WTModelSimExportSim" Val="10"/>
-    <Option Name="WTQuestaExportSim" Val="10"/>
-    <Option Name="WTIesExportSim" Val="10"/>
-    <Option Name="WTVcsExportSim" Val="10"/>
-    <Option Name="WTRivieraExportSim" Val="10"/>
-    <Option Name="WTActivehdlExportSim" Val="10"/>
+    <Option Name="WTXSimExportSim" Val="12"/>
+    <Option Name="WTModelSimExportSim" Val="12"/>
+    <Option Name="WTQuestaExportSim" Val="12"/>
+    <Option Name="WTIesExportSim" Val="12"/>
+    <Option Name="WTVcsExportSim" Val="12"/>
+    <Option Name="WTRivieraExportSim" Val="12"/>
+    <Option Name="WTActivehdlExportSim" Val="12"/>
   </Configuration>
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
@@ -49,7 +49,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/butter_filter.v">
+      <File Path="$PSRCDIR/sources_1/new/fir_filter.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -63,7 +63,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/signal_gen.v">
+      <File Path="$PSRCDIR/sources_1/new/clk_gen.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -71,6 +71,13 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/pitch_shift.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/signal_gen.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -85,13 +92,6 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/serial_rx.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/new/clk_gen.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -229,6 +229,41 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
+    <FileSet Name="pitch_filter" Type="BlockSrcs" RelSrcDir="$PSRCDIR/pitch_filter">
+      <File Path="$PSRCDIR/sources_1/ip/pitch_filter/pitch_filter.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="pitch_filter.xml"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="pitch_filter.veo"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="pitch_filter.vho"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="demo_tb/tb_pitch_filter.vhd"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="fir_compiler_v7_2_6/hdl/fir_compiler_v7_2_vh_rfs.vhd"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="cmodel/fir_compiler_v7_2_bitacc_cmodel_nt64.zip"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="cmodel/tb_pitch_filter.c"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="cmodel/pitch_filter.h"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="pitch_filter_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="pitch_filter.mif"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="xbip_utils_v3_0_6/hdl/xbip_utils_v3_0_vh_rfs.vhd"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="cmodel/fir_compiler_v7_2_bitacc_cmodel_lin64.zip"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="synth/pitch_filter.vhd"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="sim/pitch_filter.vhd"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="fir_compiler_v7_2_6/hdl/fir_compiler_v7_2.vhd"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="fir_compiler_v7_2_6/constraints/fir_compiler_v7_2.xdc"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="axi_utils_v2_0_2/hdl/axi_utils_v2_0_vh_rfs.vhd"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="doc/fir_compiler_v7_2_changelog.txt"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="pitch_filter_sim_netlist.vhdl"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="pitch_filter_sim_netlist.v"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="pitch_filter_stub.vhdl"/>
+        <CompFileExtendedInfo CompFileName="pitch_filter.xci" FileRelPathName="pitch_filter_stub.v"/>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="pitch_filter"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
   </FileSets>
   <Simulators>
     <Simulator Name="XSim">
@@ -269,6 +304,15 @@
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
+    <Run Id="pitch_filter_synth_1" Type="Ft3:Synth" SrcSet="pitch_filter" Part="xc7a35tcpg236-1" ConstrsSet="pitch_filter" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/pitch_filter_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
     <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a35tcpg236-1" ConstrsSet="constrs_1" Description="Vivado Implementation Defaults" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
@@ -287,6 +331,22 @@
     <Run Id="sin_lut_impl_1" Type="Ft2:EntireDesign" Part="xc7a35tcpg236-1" ConstrsSet="sin_lut" Description="Default settings for Implementation." SynthRun="sin_lut_synth_1" IncludeInArchive="false">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+    </Run>
+    <Run Id="pitch_filter_impl_1" Type="Ft2:EntireDesign" Part="xc7a35tcpg236-1" ConstrsSet="pitch_filter" Description="Default settings for Implementation." SynthRun="pitch_filter_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

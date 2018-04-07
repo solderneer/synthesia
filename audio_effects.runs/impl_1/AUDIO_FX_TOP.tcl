@@ -58,8 +58,14 @@ set rc [catch {
   add_files -quiet C:/Users/Auora/Documents/tonedeaf/audio_effects.runs/synth_1/AUDIO_FX_TOP.dcp
   add_files -quiet c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut.dcp
   set_property netlist_only true [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut.dcp]
+  add_files -quiet c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/pitch_filter/pitch_filter.dcp
+  set_property netlist_only true [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/pitch_filter/pitch_filter.dcp]
   read_xdc -mode out_of_context -ref sin_lut -cells U0 c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut_ooc.xdc
   set_property processing_order EARLY [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut_ooc.xdc]
+  read_xdc -mode out_of_context -ref pitch_filter -cells U0 c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/pitch_filter/pitch_filter_ooc.xdc
+  set_property processing_order EARLY [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/pitch_filter/pitch_filter_ooc.xdc]
+  read_xdc -ref pitch_filter -cells U0 c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/pitch_filter/fir_compiler_v7_2_6/constraints/fir_compiler_v7_2.xdc
+  set_property processing_order EARLY [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/pitch_filter/fir_compiler_v7_2_6/constraints/fir_compiler_v7_2.xdc]
   read_xdc C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/constrs_1/imports/Learn/Basys3_Master.xdc
   link_design -top AUDIO_FX_TOP -part xc7a35tcpg236-1
   write_hwdef -file AUDIO_FX_TOP.hwdef

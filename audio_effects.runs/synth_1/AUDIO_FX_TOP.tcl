@@ -17,15 +17,17 @@ set_property target_language Verilog [current_project]
 add_files C:/Users/Auora/Documents/tonedeaf/sin_lookup.coe
 add_files -quiet c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut.dcp
 set_property used_in_implementation false [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/sin_lut/sin_lut.dcp]
+add_files -quiet c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/pitch_filter/pitch_filter.dcp
+set_property used_in_implementation false [get_files c:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/ip/pitch_filter/pitch_filter.dcp]
 read_verilog -library xil_defaultlib {
   C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/flag_gen.v
-  C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/butter_filter.v
+  C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/fir_filter.v
   C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/buffers.v
-  C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/signal_gen.v
+  C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/clk_gen.v
   C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/pitch_shift.v
+  C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/signal_gen.v
   C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/inst_decoder.v
   C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/serial_rx.v
-  C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/clk_gen.v
   C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/SPI.v
   C:/Users/Auora/Documents/tonedeaf/audio_effects.srcs/sources_1/new/AUDIO_FX_TOP.v
 }
