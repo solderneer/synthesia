@@ -23,7 +23,7 @@
 module clk_gen(
     input I_clk,
     output O_clk1
-    );
+);
 
     parameter CLK_DIV = 2500;
     reg [20:0] cnt; 
