@@ -25,7 +25,9 @@ module AUDIO_FX_TOP(
     
     // Student defined
     input octave_sw,
-    input [7:0] sw_sel
+    input [7:0] sw_sel,
+    input RsRx,
+    output [7:0] led
     );
 
     //////////////////////////////////////////////////////////////////////////////////
@@ -33,40 +35,52 @@ module AUDIO_FX_TOP(
     // Please create the clock divider module and instantiate it here.
       wire clk_20k;
       wire clk_50M;
-      wire clk_reset;
       
-      assign clk_reset = 0;
-      
-      clk_gen #(.CLK_DIV(1250)) clkgen (CLK, clk_reset, clk_20k, clk_50M);
+      clk_gen #(.CLK_DIV(2500)) clkgen1 (clk_50M, clk_20k);
+      clk_gen #(.CLK_DIV(2)) clkgen2 (CLK, clk_50M);
   
      //////////////////////////////////////////////////////////////////////////////////
      //SPI Module: Converting serial data into a 12-bit parallel register
      //Do not change the codes in this area
-       wire [11:0]MIC_in;
+       wire [11:0] MIC_in;
        SPI u1 (CLK, clk_20k, J_MIC3_Pin3, J_MIC3_Pin1, J_MIC3_Pin4, MIC_in);
    
     /////////////////////////////////////////////////////////////////////////////////////
     // Real-time Audio Effect Features
     // Please create modules to implement different features and instantiate them here   
-      wire [11:0] speaker_out;
-      wire [11:0] buf1_out;
-      wire [11:0] buf2_out;
-      wire [11:0] filt_out;
-      wire [11:0] sigen_out;
+      wire [11:0] pitch_out;
+      wire [11:0] delay_out;
+      wire [11:0] inst_out;
       
-      wire sample_flag;
+      wire [3:0] delta;
+      wire [2:0] oct_sel;
+      wire [2:0] note_sel;
+      wire filt_en;
+      wire serial_rdy;
+
+      wire [7:0] serial_in;
+      wire [3:0] enable;
+      reg [11:0] speaker_out = 0;
       
-      reg filt_rst = 0;
-      reg [3:0] delta_sel = 4'b1100;
+      serial_rx rx1 (clk_50M, RsRx, serial_rdy, serial_in);
+      inst_decoder (clk_50M, serial_in, serial_rdy, enable, oct_sel, note_sel, filt_en, delta);
+      sin_signal_gen sg1 (clk_20k, oct_sel, note_sel, inst_out); 
+      delay_buffer #(.SIZE(32768),.WR_OFFSET(20000)) buf1 (clk_20k, MIC_in, delay_out);
+      pitch_shift buf2 (clk_50M, clk_20k, MIC_in, delta, filt_en, pitch_out);
       
-      sin_signal_gen sg1 (clk_20k, octave_sw, sw_sel, speaker_out); 
+      assign led = (serial_rdy) ? (serial_in) : led;
       
-      // delay_buffer #(.SIZE(32768),.WR_OFFSET(12768)) buf1 (clk_20k, MIC_in, buf1_out);
-      // pitch_shift buf2 (clk_20k, sigen_out, delta_sel, speaker_out);
-      // flag_gen sample_flg (clk_50M, clk_20k, sample_flag);
-      // butter_filter filt1 (clk_50M, buf2_out, sample_flag, filt_rst, filt_out); 
-          
-      // assign speaker_out = (SW1) ? filt_out : buf2_out;
+      always @(posedge clk_50M) begin
+        case(enable)
+            (4'b0000) : speaker_out <= 0;
+            (4'b0001) : speaker_out <= MIC_in;
+            (4'b0010) : speaker_out <= delay_out;
+            (4'b0100) : speaker_out <= pitch_out;
+            (4'b1000) : speaker_out <= inst_out;
+            default : speaker_out <= 0;
+        endcase
+      end
+    
     /////////////////////////////////////////////////////////////////////////////////////
     //DAC Module: Digital-to-Analog Conversion
     //Do not change the codes in this area        

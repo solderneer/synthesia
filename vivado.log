@@ -1,0 +1,126 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Sat Apr 07 22:57:13 2018
+# Process ID: 5920
+# Current directory: C:/Users/Auora/Desktop/audio_effects
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5616 C:\Users\Auora\Desktop\audio_effects\audio_effects.xpr
+# Log file: C:/Users/Auora/Desktop/audio_effects/vivado.log
+# Journal file: C:/Users/Auora/Desktop/audio_effects\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Auora/Desktop/audio_effects/audio_effects.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/Auora/Desktop/synthesia-master/.Xil/Vivado-5212-DESKTOP-URB8A7L/PrjAr/_X_' since last save.
+Scanning sources...
+Finished scanning sources
+WARNING: [Project 1-312] File not found as 'C:/archive_project_summary.txt'; using path 'C:/Users/Auora/Desktop/synthesia-master/archive_project_summary.txt' instead.
+WARNING: [Project 1-312] File not found as 'C:/sin_lookup.coe'; using path 'C:/Users/Auora/Desktop/synthesia-master/sin_lookup.coe' instead.
+WARNING: [Project 1-312] File not found as 'C:/archive_project_summary.txt'; using path 'C:/Users/Auora/Desktop/synthesia-master/archive_project_summary.txt' instead.
+WARNING: [Project 1-312] File not found as 'C:/sin_lookup.coe'; using path 'C:/Users/Auora/Desktop/synthesia-master/sin_lookup.coe' instead.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2016.2/data/ip'.
+open_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:06 . Memory (MB): peak = 793.418 ; gain = 152.590
+update_compile_order -fileset sources_1
+reset_run sin_lut_synth_1
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+[Sat Apr 07 22:58:08 2018] Launched sin_lut_synth_1, synth_1...
+Run output will be captured here:
+sin_lut_synth_1: C:/Users/Auora/Desktop/audio_effects/audio_effects.runs/sin_lut_synth_1/runme.log
+synth_1: C:/Users/Auora/Desktop/audio_effects/audio_effects.runs/synth_1/runme.log
+[Sat Apr 07 22:58:08 2018] Launched impl_1...
+Run output will be captured here: C:/Users/Auora/Desktop/audio_effects/audio_effects.runs/impl_1/runme.log
+set_property -dict [list CONFIG.CoefficientVector {-838,-2171,-3594,-3994,-2500,713,4215,6127,5461,2934,477,-243,895,2493,2937,1817,190,-504,189,1382,1786,987,-205,-631,33,995,1208,451,-477,-630,93,871,856,70,-641,-531,250,832,578,-231,-716,-358,439,792,311,-477,-709,-132,614,704,32,-663,-614,129,745,546,-255,-774,-430,405,806,317,-531,-795,-170,661,773,24,-765,-713,141,857,628,-311,-924,-516,479,958,371,-652,-971,-209,809,944,20,-954,-884,184,1079,789,-396,-1170,-650,619,1230,474,-842,-1253,-266,1054,1229,22,-1255,-1163,244,1427,1045,-529,-1561,-866,836,1658,634,-1153,-1713,-360,1457,1701,29,-1749,-1622,353,2021,1474,-775,-2256,-1249,1230,2438,934,-1718,-2560,-529,2226,2605,29,-2745,-2557,577,3268,2399,-1292,-3778,-2104,2140,4273,1647,-3135,-4737,-980,4326,5163,32,-5787,-5540,1331,7678,5860,-3386,-10359,-6118,6825,14823,6305,-14022,-25081,-6420,41594,93381,115684,93381,41594,-6420,-25081,-14022,6305,14823,6825,-6118,-10359,-3386,5860,7678,1331,-5540,-5787,32,5163,4326,-980,-4737,-3135,1647,4273,2140,-2104,-3778,-1292,2399,3268,577,-2557,-2745,29,2605,2226,-529,-2560,-1718,934,2438,1230,-1249,-2256,-775,1474,2021,353,-1622,-1749,29,1701,1457,-360,-1713,-1153,634,1658,836,-866,-1561,-529,1045,1427,244,-1163,-1255,22,1229,1054,-266,-1253,-842,474,1230,619,-650,-1170,-396,789,1079,184,-884,-954,20,944,809,-209,-971,-652,371,958,479,-516,-924,-311,628,857,141,-713,-765,24,773,661,-170,-795,-531,317,806,405,-430,-774,-255,546,745,129,-614,-663,32,704,614,-132,-709,-477,311,792,439,-358,-716,-231,578,832,250,-531,-641,70,856,871,93,-630,-477,451,1208,995,33,-631,-205,987,1786,1382,189,-504,190,1817,2937,2493,895,-243,477,2934,5461,6127,4215,713,-2500,-3994,-3594,-2171,-838} CONFIG.Coefficient_Sets {1} CONFIG.Coefficient_Sign {Signed} CONFIG.Quantization {Integer_Coefficients} CONFIG.Coefficient_Width {18} CONFIG.Coefficient_Fractional_Bits {0} CONFIG.Coefficient_Structure {Inferred} CONFIG.Data_Width {12} CONFIG.Output_Rounding_Mode {Truncate_LSBs} CONFIG.Output_Width {12}] [get_ips fir_filter]
+generate_target all [get_files  C:/Users/Auora/Desktop/audio_effects/audio_effects.srcs/sources_1/ip/fir_filter/fir_filter.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'fir_filter'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fir_filter'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fir_filter'...
+INFO: [IP_Flow 19-1686] Generating 'C Simulation' target for IP 'fir_filter'...
+INFO: [IP_Flow 19-1686] Generating 'Test Bench' target for IP 'fir_filter'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'fir_filter'...
+INFO: [xilinx.com:ip:fir_compiler:7.2-1] fir_filter: Coefficient Reload not selected, no files generated
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'fir_filter'...
+export_ip_user_files -of_objects [get_files C:/Users/Auora/Desktop/audio_effects/audio_effects.srcs/sources_1/ip/fir_filter/fir_filter.xci] -no_script -force -quiet
+reset_run fir_filter_synth_1
+launch_run -jobs 2 fir_filter_synth_1
+[Sat Apr 07 22:59:10 2018] Launched fir_filter_synth_1...
+Run output will be captured here: C:/Users/Auora/Desktop/audio_effects/audio_effects.runs/fir_filter_synth_1/runme.log
+export_simulation -of_objects [get_files C:/Users/Auora/Desktop/audio_effects/audio_effects.srcs/sources_1/ip/fir_filter/fir_filter.xci] -directory C:/Users/Auora/Desktop/audio_effects/audio_effects.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Auora/Desktop/audio_effects/audio_effects.ip_user_files -ipstatic_source_dir C:/Users/Auora/Desktop/audio_effects/audio_effects.ip_user_files/ipstatic -force -quiet
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sat Apr 07 23:01:54 2018] Launched impl_1...
+Run output will be captured here: C:/Users/Auora/Desktop/audio_effects/audio_effects.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2016.2
+  **** Build date : Jun  2 2016-16:57:03
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183756757A
+set_property PROGRAM.FILE {C:/Users/Auora/Desktop/audio_effects/audio_effects.runs/impl_1/AUDIO_FX_TOP.bit} [lindex [get_hw_devices] 0]
+current_hw_device [lindex [get_hw_devices] 0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+set_property PROBES.FILE {} [lindex [get_hw_devices] 0]
+set_property PROGRAM.FILE {C:/Users/Auora/Desktop/audio_effects/audio_effects.runs/impl_1/AUDIO_FX_TOP.bit} [lindex [get_hw_devices] 0]
+program_hw_devices [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sat Apr 07 23:07:56 2018] Launched synth_1...
+Run output will be captured here: C:/Users/Auora/Desktop/audio_effects/audio_effects.runs/synth_1/runme.log
+[Sat Apr 07 23:07:56 2018] Launched impl_1...
+Run output will be captured here: C:/Users/Auora/Desktop/audio_effects/audio_effects.runs/impl_1/runme.log
+set_property PROBES.FILE {} [lindex [get_hw_devices] 0]
+set_property PROGRAM.FILE {C:/Users/Auora/Desktop/audio_effects/audio_effects.runs/impl_1/AUDIO_FX_TOP.bit} [lindex [get_hw_devices] 0]
+program_hw_devices [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+close_hw
+archive_project C:/Users/Auora/Desktop/Wednesday_Sundaramahalingam_Sudharshan_A0152230Y_Archive.xpr.zip -temp_dir C:/Users/Auora/Desktop/audio_effects/.Xil/Vivado-5920-DESKTOP-URB8A7L -force
+INFO: [Coretcl 2-137] starting archive...
+INFO: [Coretcl 2-1499] Saving project copy to temporary location 'C:/Users/Auora/Desktop/audio_effects/.Xil/Vivado-5920-DESKTOP-URB8A7L' for archiving project
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2016.2/data/ip'.
+INFO: [Coretcl 2-1211] Creating project copy for archival...
+INFO: [Coretcl 2-1213] Including run results for 'synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'sin_lut_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'fir_filter_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'impl_1'
+INFO: [Coretcl 2-133] re-setting run 'sin_lut_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'fir_filter_impl_1'...
+INFO: [Coretcl 2-1212] Importing remotely added design sources and verilog include files (if any)...
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'fir_filter'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'fir_filter'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'sin_lut'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sin_lut'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'constrs_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'constrs_1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'sim_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sim_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sources_1'

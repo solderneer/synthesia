@@ -22,28 +22,42 @@
 
 module pitch_shift(
     input I_clk,
+    input I_sampleclk,
     input [11:0] I_input,
     input [3:0] I_delta,
+    input I_filten,
     output [11:0] O_output
     );
     
     wire [11:0] buf1_out;
     wire [11:0] buf2_out;
+    wire [11:0] raw;
+    wire output_rdy;
+    wire sample_flag;
     
     reg [12:0] buf_out;
+    reg [11:0] filt_out;
     
-    pitch_buffer #(.WR_OFFSET(0),.SIZE(1024)) buf1 (I_clk, I_input, I_delta, buf1_out);
-    pitch_buffer #(.WR_OFFSET(512),.SIZE(1024)) buf2 (I_clk, I_input, I_delta, buf2_out);
+    assign O_output = (I_filten) ? filt_out : buf_out[11:0];
     
-    assign O_output = buf_out[11:0];
+    flag_gen sample_flg (I_clk, I_sampleclk, sample_flag);
+    pitch_filter filt1 (I_clk, sample_flag, buf_out[11:0], output_rdy, raw);
     
+    pitch_buffer #(.WR_OFFSET(0),.SIZE(1024)) buf1 (I_sampleclk, I_input, I_delta, buf1_out);
+    pitch_buffer #(.WR_OFFSET(512),.SIZE(1024)) buf2 (I_sampleclk, I_input, I_delta, buf2_out);
+
     initial begin
         buf_out = 0;
     end
     
-    always @(posedge I_clk) begin
-        buf_out = ((buf1_out + buf2_out) >> 1);
+    always @(posedge I_sampleclk) begin
+        buf_out <= ((buf1_out + buf2_out) >> 1);
     end
     
+    always @(posedge I_clk) begin
+        if(output_rdy) begin
+            filt_out <= raw;
+        end
+    end
     
 endmodule
