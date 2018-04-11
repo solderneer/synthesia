@@ -1,0 +1,3 @@
+[submodule "synthesia_app"]
+	path = synthesia_app
+	url = https://github.com/solderneer/synthesia_app
